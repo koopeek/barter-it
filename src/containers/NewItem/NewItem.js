@@ -1,12 +1,12 @@
 import React from 'react';
-import ProductForm from '../../components/ProductForm/ProductForm';
+import ItemForm from '../../components/ItemForm/ItemForm';
 import Header from '../../components/Header/Header';
 
 const NewProduct = () => {
   return (
     <>
       <Header />
-      <ProductForm />
+      <ItemForm />
     </>
   );
 };
