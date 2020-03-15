@@ -11,8 +11,23 @@ const ItemForm = () => {
     dispatch(addNewItem(values));
   };
 
+  const validate = values => {
+    const errors = {};
+
+    if (!values.name || values.name.length < 3) {
+      errors.name = 'Nazwa przedmiotu musi zawierać conajmniej 3 znaki!';
+    }
+    if (!values.mark) {
+      errors.mark = 'Musisz podać markę przedmiotu!';
+    }
+    if (!values.description || values.description.length < 10) {
+      errors.description = 'Opis przedmiotu musi zawierać conajmniej 10 znaków!';
+    }
+    return errors;
+  };
+
   return (
-    <Form onSubmit={handleSubmitForm}>
+    <Form onSubmit={handleSubmitForm} validate={validate}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit} autoComplete="off" className="form">
           <Field name="name">
@@ -20,7 +35,9 @@ const ItemForm = () => {
               <div className="form__field">
                 <label className="form__field-label">Nazwa</label>
                 <input {...input} type="text" className="form__field-input" />
-                {meta.error && <span>{meta.error}</span>}
+                {meta.error && meta.touched && (
+                  <span className="form__field-error">{meta.error}</span>
+                )}
               </div>
             )}
           </Field>
@@ -29,7 +46,9 @@ const ItemForm = () => {
               <div className="form__field">
                 <label className="form__field-label">Marka</label>
                 <input {...input} type="text" className="form__field-input" />
-                {meta.error && <span>{meta.error}</span>}
+                {meta.error && meta.touched && (
+                  <span className="form__field-error">{meta.error}</span>
+                )}
               </div>
             )}
           </Field>
@@ -63,7 +82,9 @@ const ItemForm = () => {
               <div className="form__field">
                 <label className="form__field-label">Opis</label>
                 <textarea {...input} type="text" className="form__field-textarea"></textarea>
-                {meta.error && <span>{meta.error}</span>}
+                {meta.error && meta.touched && (
+                  <span className="form__field-error">{meta.error}</span>
+                )}
               </div>
             )}
           </Field>
