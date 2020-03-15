@@ -20,6 +20,12 @@ const ItemForm = () => {
     if (!values.mark) {
       errors.mark = 'Musisz podać markę przedmiotu!';
     }
+    if (!values.category || values.category === 'Wybierz') {
+      errors.category = 'Musisz wybrać kategorie!';
+    }
+    if (!values.condition || values.condition === 'Wybierz') {
+      errors.condition = 'Musisz wybrać stan przedmiotu!';
+    }
     if (!values.description || values.description.length < 10) {
       errors.description = 'Opis przedmiotu musi zawierać conajmniej 10 znaków!';
     }
@@ -56,11 +62,14 @@ const ItemForm = () => {
             {({ input, meta }) => (
               <div className="form__field">
                 <label className="form__field-label">Kategoria</label>
-                <select {...input} className="form__field-input">
+                <select {...input} selected="Odziez" className="form__field-input">
+                  <option>Wybierz</option>
                   <option>Motoryzacja</option>
                   <option>Odziez</option>
                 </select>
-                {meta.error && <span>{meta.error}</span>}
+                {meta.error && meta.touched && (
+                  <span className="form__field-error">{meta.error}</span>
+                )}
               </div>
             )}
           </Field>
@@ -69,11 +78,14 @@ const ItemForm = () => {
               <div className="form__field">
                 <label className="form__field-label">Stan</label>
                 <select {...input} className="form__field-input">
+                  <option>Wybierz</option>
                   <option>Bardzo dobry</option>
                   <option>Dobry</option>
                   <option>Uszkodzony</option>
                 </select>
-                {meta.error && <span>{meta.error}</span>}
+                {meta.error && meta.touched && (
+                  <span className="form__field-error">{meta.error}</span>
+                )}
               </div>
             )}
           </Field>
