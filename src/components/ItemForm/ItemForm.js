@@ -11,22 +11,22 @@ const ItemForm = () => {
     dispatch(addNewItem(values));
   };
 
-  const validate = values => {
+  const validate = ({ name, mark, category, condition, description }) => {
     const errors = {};
 
-    if (!values.name || values.name.length < 3) {
+    if (!name || name.length < 3) {
       errors.name = 'Nazwa przedmiotu musi zawierać conajmniej 3 znaki!';
     }
-    if (!values.mark) {
+    if (!mark) {
       errors.mark = 'Musisz podać markę przedmiotu!';
     }
-    if (!values.category || values.category === 'Wybierz') {
+    if (!category || category === 'Wybierz') {
       errors.category = 'Musisz wybrać kategorie!';
     }
-    if (!values.condition || values.condition === 'Wybierz') {
+    if (!condition || condition === 'Wybierz') {
       errors.condition = 'Musisz wybrać stan przedmiotu!';
     }
-    if (!values.description || values.description.length < 10) {
+    if (!description || description.length < 10) {
       errors.description = 'Opis przedmiotu musi zawierać conajmniej 10 znaków!';
     }
     return errors;

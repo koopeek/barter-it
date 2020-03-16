@@ -5,7 +5,7 @@ import './Header.scss';
 const Header = () => {
   return (
     <header className="header">
-      <Link to="/przedmiot/nowy">Dodaj nowy produkt</Link>
+      <Link to="/item/new">Dodaj nowy produkt</Link>
     </header>
   );
 };
