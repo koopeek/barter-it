@@ -1,13 +1,8 @@
-const signIn = () => {
+const addNewItem = item => {
   return {
-    type: 'SIGN_IN'
+    type: 'ADD_NEW_ITEM_TO_USER_ITEMS',
+    payload: item
   };
 };
 
-const signUp = () => {
-  return {
-    type: 'SIGN_UP'
-  };
-};
-
-export { signIn, signUp };
+export { addNewItem };
