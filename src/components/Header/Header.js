@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="header">
       <nav className="navigation">
         <div className="navigation__logo">
           <h4>Barter it</h4>

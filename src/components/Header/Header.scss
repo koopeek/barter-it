@@ -1,62 +1,98 @@
-.header {
-  height: 50px;
-  border: 1px solid #dddddd;
-}
-
-.logo {
-  font-family: 'Abel', sans-serif;
+body,
+html {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .navigation {
+  //position: relative;
   display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  align-items: center;
   min-height: 8vh;
   width: 100%;
-  align-items: center;
-  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.navigation__logo {
+  margin-left: 40px;
 }
 
 .navigation__list {
   display: flex;
   justify-content: space-around;
+  overflow-x: hidden;
   text-decoration: none;
   width: 40%;
 
   @media (max-width: 768px) {
-    display: none;
+    position: absolute;
+    top: 8vh;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    transform: translateX(400px);
   }
+}
+
+.navigation__list--active {
+  position: absolute;
+  top: 8vh;
+  // right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 200px;
+  transform: translateX(180px);
 }
 
 .navigation__list__item {
   list-style: none;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    height: 5%;
+  }
+}
+
+.navigation__list,
+.navigation__hamburger {
+  transition: transform 0.2s 0.2s ease-in-out;
 }
 
 .navigation__hamburger {
   display: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 40px;
 
   @media (max-width: 768px) {
     display: block;
   }
 }
 
-.navigation__hamburger {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .navigation__hamburger__box {
+  position: relative;
+  display: block;
   width: 40px;
   height: 24px;
   padding: 20px;
-  display: block;
-  position: relative;
 }
 
 .navigation__hamburger__line {
+  position: absolute;
   width: 100%;
   height: 3px;
   background-color: black;
-  position: absolute;
   left: 0;
   transition: background-color 0.1s 0.2s ease-in-out;
 }
@@ -72,25 +108,16 @@
   transition: transform 0.2s 0.2s ease-in-out;
 }
 
-.navigation__list--active {
-  position: absolute;
-  top: 8vh;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
-.navigation__list--active .navigation__list__item {
-  text-align: right;
-}
-
 .navigation__hamburger__line::before {
   top: -10px;
 }
 
 .navigation__hamburger__line::after {
   top: 10px;
+}
+
+.navigation__hamburger--active {
+  transform: translateX(-120px);
 }
 
 .navigation__hamburger--active .navigation__hamburger__line {
