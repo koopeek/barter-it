@@ -4,24 +4,33 @@ html {
   overflow: hidden;
   width: 100%;
   height: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navigation {
-  //position: relative;
   display: flex;
   justify-content: space-around;
   overflow: hidden;
   align-items: center;
-  min-height: 8vh;
+  min-height: 10vh;
   width: 100%;
 
-  @media (max-width: 768px) {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (max-width: 1024px) {
     justify-content: space-between;
   }
 }
 
 .navigation__logo {
-  margin-left: 40px;
+  text-transform: uppercase;
+
+  @media (max-width: 1024px) {
+    margin-left: 10%;
+  }
 }
 
 .navigation__list {
@@ -31,39 +40,58 @@ html {
   text-decoration: none;
   width: 40%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: absolute;
-    top: 8vh;
+    top: 0vh;
+    height: 100vh;
     display: flex;
+    right: 0;
     flex-direction: column;
-    width: 200px;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
-    transform: translateX(400px);
+    width: 250px;
+    transform: translateX(100vw);
+    background-color: #eeeeee;
   }
 }
 
 .navigation__list--active {
   position: absolute;
-  top: 8vh;
-  // right: 0;
+  top: 0vh;
+  height: 100vh;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 200px;
-  transform: translateX(180px);
+  text-align: center;
+  width: 250px;
+  transform: translateX(0px);
+}
+
+.navigation__list--active .navigation__list__item:first-of-type {
+  margin-top: 90px;
 }
 
 .navigation__list__item {
   list-style: none;
+  cursor: pointer;
 
-  @media (max-width: 768px) {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (max-width: 1024px) {
     margin-top: 15px;
     height: 5%;
+    border-bottom: 1px solid #cccccc;
+    width: 100%;
   }
 }
 
-.navigation__list,
+.navigation__list--active,
 .navigation__hamburger {
   transition: transform 0.2s 0.2s ease-in-out;
 }
@@ -75,7 +103,7 @@ html {
   cursor: pointer;
   margin-right: 40px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: block;
   }
 }
@@ -117,7 +145,7 @@ html {
 }
 
 .navigation__hamburger--active {
-  transform: translateX(-120px);
+  transform: translateX(-165px);
 }
 
 .navigation__hamburger--active .navigation__hamburger__line {
