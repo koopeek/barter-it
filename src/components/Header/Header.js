@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import './Header.scss';
 
 const Header = () => {
@@ -19,9 +21,15 @@ const Header = () => {
           </h2>
         </div>
         <ul className="navigation__list">
-          <li className="navigation__list__item">
-            <Link to="/item/new">Dodaj nowy przedmiot</Link>
-          </li>
+          {window.location.pathname !== '/item/new' && (
+            <li className="navigation__list__item navigation__list__item--add-new">
+              <Link to="/item/new">Dodaj nowy przedmiot</Link>
+              <FontAwesomeIcon
+                icon={faLongArrowAltRight}
+                className="navigation__list__item__icon"
+              />
+            </li>
+          )}
         </ul>
         <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
           <div className="navigation__hamburger__box">

@@ -2,6 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { addNewItem } from '../../actions/user';
+import { categories, conditions } from '../../assets/lists/selectOptions.js';
+
+import Input from '../Input/Input';
+
 import './ItemForm.scss';
 
 const ItemForm = () => {
@@ -20,10 +24,10 @@ const ItemForm = () => {
     if (!mark) {
       errors.mark = 'Musisz podać markę przedmiotu!';
     }
-    if (!category || category === 'Wybierz') {
+    if (!category || category === 'SELECT') {
       errors.category = 'Musisz wybrać kategorie!';
     }
-    if (!condition || condition === 'Wybierz') {
+    if (!condition || condition === 'SELECT') {
       errors.condition = 'Musisz wybrać stan przedmiotu!';
     }
     if (!description || description.length < 10) {
@@ -36,74 +40,34 @@ const ItemForm = () => {
     <Form onSubmit={handleSubmitForm} validate={validate}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit} autoComplete="off" className="form">
-          <Field name="name">
-            {({ input, meta }) => (
-              <div className="form__field">
-                <label className="form__field-label">Nazwa</label>
-                <input {...input} type="text" className="form__field-input" />
-                {meta.error && meta.touched && (
-                  <span className="form__field-error">{meta.error}</span>
-                )}
-              </div>
-            )}
-          </Field>
-          <Field name="mark">
-            {({ input, meta }) => (
-              <div className="form__field">
-                <label className="form__field-label">Marka</label>
-                <input {...input} type="text" className="form__field-input" />
-                {meta.error && meta.touched && (
-                  <span className="form__field-error">{meta.error}</span>
-                )}
-              </div>
-            )}
-          </Field>
-          <Field name="category">
-            {({ input, meta }) => (
-              <div className="form__field">
-                <label className="form__field-label">Kategoria</label>
-                <select {...input} selected="Odziez" className="form__field-input">
-                  <option>Wybierz</option>
-                  <option>Motoryzacja</option>
-                  <option>Odziez</option>
-                </select>
-                {meta.error && meta.touched && (
-                  <span className="form__field-error">{meta.error}</span>
-                )}
-              </div>
-            )}
-          </Field>
-          <Field name="condition">
-            {({ input, meta }) => (
-              <div className="form__field">
-                <label className="form__field-label">Stan</label>
-                <select {...input} className="form__field-input">
-                  <option>Wybierz</option>
-                  <option>Bardzo dobry</option>
-                  <option>Dobry</option>
-                  <option>Uszkodzony</option>
-                </select>
-                {meta.error && meta.touched && (
-                  <span className="form__field-error">{meta.error}</span>
-                )}
-              </div>
-            )}
-          </Field>
-          <Field name="description">
-            {({ input, meta }) => (
-              <div className="form__field">
-                <label className="form__field-label">Opis</label>
-                <textarea {...input} type="text" className="form__field-textarea"></textarea>
-                {meta.error && meta.touched && (
-                  <span className="form__field-error">{meta.error}</span>
-                )}
-              </div>
-            )}
-          </Field>
           <div className="form__field">
-            <label className="form__field-label">Zdjęcia</label>
-            <div className="form__field-photos">---</div>
+            <Field name="name" component={Input} type="text" label="Nazwa" />
           </div>
+          <div className="form__field">
+            <Field name="mark" component={Input} type="text" label="Marka" />
+          </div>
+          <div className="form__field">
+            <Field
+              name="category"
+              component={Input}
+              options={categories}
+              type="select"
+              label="Kategoria"
+            />
+          </div>
+          <div className="form__field">
+            <Field
+              name="condition"
+              component={Input}
+              options={conditions}
+              type="select"
+              label="Stan"
+            />
+          </div>
+          <div className="form__field--textarea">
+            <Field name="description" component={Input} type="textarea" label="Opis przedmiotu" />
+          </div>
+
           <div className="form__buttons">
             <button type="submit">Dodaj</button>
           </div>
