@@ -1,0 +1,52 @@
+.navigation__list__item__userSettings {
+  &__box {
+    position: absolute;
+    display: none;
+    top: 10.2vh;
+
+    ul {
+      list-style: none;
+      text-decoration: none;
+      padding: 15px;
+
+      li {
+        text-align: left;
+        padding: 5px;
+      }
+
+      li:last-of-type {
+        border-top: 1px solid #bbbbbb;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &__triangle {
+    position: absolute;
+    display: none;
+    height: 25px;
+    width: 100%;
+
+    .test {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      width: 30px;
+      margin-left: 0 !important;
+      background-color: #dddddd;
+    }
+  }
+}
+
+.navigation__list__item__userSettings:hover {
+  .navigation__list__item__userSettings__box,
+  .navigation__list__item__userSettings__triangle {
+    display: flex;
+  }
+  .navigation__list__item__userSettings__box {
+    background-color: #dddddd;
+  }
+}
+
+.navigation__list__item__userSettings__box:hover {
+  display: flex;
+  background-color: #dddddd;
+}
