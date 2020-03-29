@@ -4,7 +4,7 @@ import './SignInButton.scss';
 
 const SignInButton = () => {
   return (
-    <Link to="user/account/login" className="signInButton">
+    <Link to="/account/login" className="signInButton">
       Zaloguj
     </Link>
   );

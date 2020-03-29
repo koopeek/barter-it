@@ -4,7 +4,7 @@ import './SignUpButton.scss';
 
 const SignUpButton = () => {
   return (
-    <Link to="user/account/create" className="signUpButton">
+    <Link to="/account/create" className="signUpButton">
       Stwórz konto
     </Link>
   );
