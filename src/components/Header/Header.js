@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import NewItemButton from '../Buttons/NewItemButton/NewItemButton';
+import UserNavIcon from './UserNavIcon/UserNavIcon';
+import UserNavList from './UserNavList/UserNavList';
 import './Header.scss';
 
 const Header = () => {
+  const [mobileNavOpened, setMobileNavOpened] = useState(false);
+
   const toggleHamburger = () => {
     const hamburgerButton = document.querySelector('.navigation__hamburger');
     const navigationList = document.querySelector('.navigation__list');
     hamburgerButton.classList.toggle('navigation__hamburger--active');
     navigationList.classList.toggle('navigation__list--active');
+
+    setMobileNavOpened(!mobileNavOpened);
   };
 
   return (
@@ -21,15 +26,13 @@ const Header = () => {
           </h2>
         </div>
         <ul className="navigation__list">
-          {window.location.pathname !== '/item/new' && (
-            <li className="navigation__list__item navigation__list__item--add-new">
-              <Link to="/item/new">Dodaj nowy przedmiot</Link>
-              <FontAwesomeIcon
-                icon={faLongArrowAltRight}
-                className="navigation__list__item__icon"
-              />
-            </li>
-          )}
+          <li className="navigation__list__item">
+            <NewItemButton />
+          </li>
+          <li className="navigation__list__item navigation__list__item--userNavIcon">
+            <UserNavIcon />
+          </li>
+          {mobileNavOpened && <UserNavList />}
         </ul>
         <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
           <div className="navigation__hamburger__box">
