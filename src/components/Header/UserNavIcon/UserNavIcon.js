@@ -6,16 +6,12 @@ import './UserNavIcon.scss';
 
 const UserNavIcon = () => {
   return (
-    <div className="navigation__list__item__userSettings">
-      <FontAwesomeIcon
-        icon={faUserAlt}
-        size="3x"
-        className="navigation__list__item__userSettings__icon"
-      />
-      <div className="navigation__list__item__userSettings__triangle">
-        <div className="test"></div>
+    <div className="userNavIcon">
+      <FontAwesomeIcon icon={faUserAlt} size="3x" className="userNavIcon__icon" />
+      <div className="userNavIcon__triangle">
+        <div className="userNavIcon__triangle__content"></div>
       </div>
-      <div className="navigation__list__item__userSettings__box">
+      <div className="userNavIcon__list">
         <ul>
           <UserSettingsList />
         </ul>

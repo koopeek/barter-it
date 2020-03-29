@@ -29,7 +29,7 @@ const Header = () => {
           <li className="navigation__list__item">
             <NewItemButton />
           </li>
-          <li className="navigation__list__item navigation__list_item--userNavIcon">
+          <li className="navigation__list__item navigation__list__item--userNavIcon">
             <UserNavIcon />
           </li>
           {mobileNavOpened && <UserNavList />}
