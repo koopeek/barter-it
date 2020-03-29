@@ -6,7 +6,7 @@ import UserNavList from './UserNavList/UserNavList';
 import './Header.scss';
 
 const Header = () => {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [mobileNavOpened, setMobileNavOpened] = useState(false);
 
   const toggleHamburger = () => {
     const hamburgerButton = document.querySelector('.navigation__hamburger');
@@ -14,7 +14,7 @@ const Header = () => {
     hamburgerButton.classList.toggle('navigation__hamburger--active');
     navigationList.classList.toggle('navigation__list--active');
 
-    setMobileNavOpen(!mobileNavOpen);
+    setMobileNavOpened(!mobileNavOpened);
   };
 
   return (
@@ -29,12 +29,10 @@ const Header = () => {
           <li className="navigation__list__item">
             <NewItemButton />
           </li>
-          {!mobileNavOpen && (
-            <li className="navigation__list__item">
-              <UserNavIcon />
-            </li>
-          )}
-          {mobileNavOpen && <UserNavList className="navigation__list__item" />}
+          <li className="navigation__list__item navigation__list_item--userNavIcon">
+            <UserNavIcon />
+          </li>
+          {mobileNavOpened && <UserNavList />}
         </ul>
         <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
           <div className="navigation__hamburger__box">

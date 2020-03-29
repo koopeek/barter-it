@@ -1,7 +1,10 @@
 .new-item-button {
-  background-color: #2d9cdb;
   text-transform: uppercase;
-  font-weight: 500;
-  padding: 10px;
-  color: #ffffff !important;
+
+  @media (min-width: 1024px) {
+    background-color: #2d9cdb;
+    font-weight: 500;
+    padding: 10px;
+    color: #ffffff !important;
+  }
 }

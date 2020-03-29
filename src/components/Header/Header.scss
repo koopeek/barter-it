@@ -80,6 +80,12 @@ $edge: 1024px;
 
     &__item {
       cursor: pointer;
+
+      &--userNavIcon {
+        @include mobile {
+          display: none;
+        }
+      }
     }
   }
 
