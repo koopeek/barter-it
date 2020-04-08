@@ -25,15 +25,18 @@ const Header = () => {
             <Link to="/">Barter it</Link>
           </h2>
         </div>
-        <ul className="navigation__list">
-          <li className="navigation__list__item">
-            <NewItemButton />
-          </li>
-          <li className="navigation__list__item navigation__list__item--userNavIcon">
-            <UserNavIcon />
-          </li>
-          {mobileNavOpened && <UserNavList />}
-        </ul>
+        {window.location.pathname !== '/account/login' &&
+        window.location.pathname !== '/account/create' ? (
+          <ul className="navigation__list">
+            <li className="navigation__list__item">
+              <NewItemButton />
+            </li>
+            <li className="navigation__list__item navigation__list__item--userNavIcon">
+              <UserNavIcon />
+            </li>
+            {mobileNavOpened && <UserNavList />}
+          </ul>
+        ) : null}
         <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
           <div className="navigation__hamburger__box">
             <span className="navigation__hamburger__line"></span>

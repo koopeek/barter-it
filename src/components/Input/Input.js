@@ -6,6 +6,10 @@ const Input = ({ input, meta, label, options, ...rest }) => {
     switch (param) {
       case 'text':
         return <input {...input} className="input__field" />;
+      case 'password':
+        return <input {...input} className="input__field" />;
+      case 'email':
+        return <input {...input} className="input__field" />;
       case 'select':
         return (
           <select {...input} className="input__field">
