@@ -40,12 +40,13 @@ $edge: 1024px;
 
   &__list {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     overflow-x: hidden;
     text-decoration: none;
     list-style: none;
-    width: 30%;
+    min-height: 10vh;
+    width: 50%;
     font-size: 14px;
     text-transform: uppercase;
     margin-right: 15%;
@@ -83,11 +84,10 @@ $edge: 1024px;
 
     &__item {
       cursor: pointer;
+      margin-left: 20px;
 
-      &--userNavIcon {
-        @include mobile {
-          display: none;
-        }
+      @include mobile {
+        margin: 0 0 25px 0;
       }
     }
   }

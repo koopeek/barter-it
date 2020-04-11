@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ROUTES from './assets/routes';
 import Header from './components/Header/Header';
 import Main from './views/Main/Main';
 import NewItem from './views/NewItem/NewItem';
@@ -13,10 +14,12 @@ function App() {
     <Provider store={store}>
       <Router>
         <Header />
-        <Route exact path="/" component={Main} />
-        <Route path="/item/new" component={NewItem} />
-        <Route path="/account/signin" component={SignIn} />
-        <Route path="/account/signup" component={SignUp} />
+        <Switch>
+          <Route exact path={ROUTES.MAIN} component={Main} />
+          <Route path={ROUTES.NEW_ITEM} component={NewItem} />
+          <Route path={ROUTES.SIGN_IN} component={SignIn} />
+          <Route path={ROUTES.SIGN_UP} component={SignUp} />
+        </Switch>
       </Router>
     </Provider>
   );

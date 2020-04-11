@@ -14,7 +14,9 @@ const Input = ({ input, meta, label, options, ...rest }) => {
         return (
           <select {...input} className="input__field">
             {options.map(option => (
-              <option value={option.type}>{option.label}</option>
+              <option key={option.type} value={option.type}>
+                {option.label}
+              </option>
             ))}
           </select>
         );

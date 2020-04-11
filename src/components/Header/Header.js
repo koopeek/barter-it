@@ -1,20 +1,70 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import ROUTES from '../../assets/routes';
 import NewItemButton from '../Buttons/NewItemButton/NewItemButton';
-import UserNavIcon from './UserNavIcon/UserNavIcon';
-import UserNavList from './UserNavList/UserNavList';
+import MyAccountButton from '../Buttons/MyAccountButton/MyAccountButton';
+import { useSelector } from 'react-redux';
 import './Header.scss';
 
-const Header = () => {
-  const [mobileNavOpened, setMobileNavOpened] = useState(false);
+const Header = ({ location }) => {
+  const [hamburger, setHamburger] = useState(null);
+  const [navList, setNavList] = useState(null);
+
+  useEffect(() => {
+    setHamburger(document.querySelector('.navigation__hamburger'));
+    setNavList(document.querySelector('.navigation__list'));
+
+    return () => {
+      if (hamburger && hamburger.classList.contains('navigation__hamburger--active')) {
+        hamburger.classList.remove('navigation__hamburger--active');
+      }
+      if (navList && navList.classList.contains('navigation__list--active')) {
+        navList.classList.remove('navigation__list--active');
+      }
+    };
+  });
+
+  const isUserLogged = useSelector(state => state.user.isLogged);
 
   const toggleHamburger = () => {
-    const hamburgerButton = document.querySelector('.navigation__hamburger');
-    const navigationList = document.querySelector('.navigation__list');
-    hamburgerButton.classList.toggle('navigation__hamburger--active');
-    navigationList.classList.toggle('navigation__list--active');
+    if (hamburger && navList) {
+      hamburger.classList.toggle('navigation__hamburger--active');
+      navList.classList.toggle('navigation__list--active');
+    }
+  };
 
-    setMobileNavOpened(!mobileNavOpened);
+  const renderNavList = () => {
+    return (
+      <>
+        {location.pathname !== ROUTES.SIGN_IN && location.pathname !== ROUTES.SIGN_UP ? (
+          <>
+            <ul className="navigation__list">
+              {renderNewItemButton()}
+              <li className="navigation__list__item">
+                <MyAccountButton path={isUserLogged ? '/account/settings' : '/account/signin'} />
+              </li>
+            </ul>
+            <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
+              <div className="navigation__hamburger__box">
+                <span className="navigation__hamburger__line"></span>
+              </div>
+            </button>
+          </>
+        ) : null}
+      </>
+    );
+  };
+
+  const renderNewItemButton = () => {
+    return (
+      <>
+        {location.pathname !== ROUTES.NEW_ITEM ? (
+          <li className="navigation__list__item">
+            <NewItemButton />
+          </li>
+        ) : null}
+      </>
+    );
   };
 
   return (
@@ -25,26 +75,10 @@ const Header = () => {
             <Link to="/">Barter it</Link>
           </h2>
         </div>
-        {window.location.pathname !== '/account/login' &&
-        window.location.pathname !== '/account/create' ? (
-          <ul className="navigation__list">
-            <li className="navigation__list__item">
-              <NewItemButton />
-            </li>
-            <li className="navigation__list__item navigation__list__item--userNavIcon">
-              <UserNavIcon />
-            </li>
-            {mobileNavOpened && <UserNavList />}
-          </ul>
-        ) : null}
-        <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
-          <div className="navigation__hamburger__box">
-            <span className="navigation__hamburger__line"></span>
-          </div>
-        </button>
+        {renderNavList()}
       </nav>
     </header>
   );
 };
 
-export default Header;
+export default withRouter(Header);
