@@ -34,7 +34,7 @@ const SignUpForm = () => {
             </div>
             <div className="form__info">
               <span>Posiadasz już konto?</span>
-              <Link to={ROUTES.SIGN_IN}> Zaloguj się</Link>
+              <Link to={ROUTES.ACCOUNT_SIGN_IN}> Zaloguj się</Link>
             </div>
           </form>
         )}

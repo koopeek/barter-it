@@ -26,7 +26,7 @@ const SingInForm = () => {
             </div>
             <div className="form__info">
               <span>Nie posiadasz konta?</span>
-              <Link to={ROUTES.SIGN_UP}> Zarejestruj się</Link>
+              <Link to={ROUTES.ACCOUNT_SIGN_UP}> Zarejestruj się</Link>
             </div>
           </form>
         )}

@@ -41,7 +41,9 @@ const Header = ({ location }) => {
             <ul className="navigation__list">
               {renderNewItemButton()}
               <li className="navigation__list__item">
-                <MyAccountButton path={isUserLogged ? '/account/settings' : '/account/signin'} />
+                <MyAccountButton
+                  path={isUserLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_SIGN_IN}
+                />
               </li>
             </ul>
             <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
