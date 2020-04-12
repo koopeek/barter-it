@@ -36,7 +36,8 @@ const Header = ({ location }) => {
   const renderNavList = () => {
     return (
       <>
-        {location.pathname !== ROUTES.SIGN_IN && location.pathname !== ROUTES.SIGN_UP ? (
+        {location.pathname !== ROUTES.ACCOUNT_SIGN_IN &&
+        location.pathname !== ROUTES.ACCOUNT_SIGN_UP ? (
           <>
             <ul className="navigation__list">
               {renderNewItemButton()}
