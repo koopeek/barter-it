@@ -17,8 +17,8 @@ function App() {
         <Switch>
           <Route exact path={ROUTES.MAIN} component={Main} />
           <Route path={ROUTES.NEW_ITEM} component={NewItem} />
-          <Route path={ROUTES.SIGN_IN} component={SignIn} />
-          <Route path={ROUTES.SIGN_UP} component={SignUp} />
+          <Route path={ROUTES.ACCOUNT_SIGN_IN} component={SignIn} />
+          <Route path={ROUTES.ACCOUNT_SIGN_UP} component={SignUp} />
         </Switch>
       </Router>
     </Provider>
