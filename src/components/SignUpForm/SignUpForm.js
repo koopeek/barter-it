@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
+import ROUTES from '../../assets/routes';
 import Input from '../Input/Input';
 import './SignUpForm.scss';
 
@@ -33,7 +34,7 @@ const SignUpForm = () => {
             </div>
             <div className="form__info">
               <span>Posiadasz już konto?</span>
-              <Link to="/account/login"> Zaloguj się</Link>
+              <Link to={ROUTES.ACCOUNT_SIGN_IN}> Zaloguj się</Link>
             </div>
           </form>
         )}

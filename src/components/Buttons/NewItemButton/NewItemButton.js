@@ -1,17 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ROUTES from '../../../assets/routes';
 import './NewItemButton.scss';
 
 const NewItemButton = () => {
-  const newItemViewPath = '/item/new';
   return (
-    <>
-      {window.location.pathname !== newItemViewPath ? (
-        <Link to={newItemViewPath} className="new-item-button">
-          Dodaj nowy przedmiot
-        </Link>
-      ) : null}
-    </>
+    <Link to={ROUTES.NEW_ITEM} className="new-item-button">
+      Dodaj nowy przedmiot
+    </Link>
   );
 };
 

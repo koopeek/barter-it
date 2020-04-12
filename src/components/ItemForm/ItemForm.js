@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
-import { addNewItem } from '../../actions/user';
-import { categories, conditions } from '../../assets/lists/selectOptions.js';
+import { addNewItem } from '../../redux/actions/user';
+import { categories, conditions } from '../../assets/selectOptions.js';
 
 import Input from '../Input/Input';
 

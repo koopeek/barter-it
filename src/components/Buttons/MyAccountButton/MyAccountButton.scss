@@ -1,0 +1,10 @@
+.my-account-button {
+  text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    font-weight: 500;
+    padding: 10px;
+    color: #2d9cdb !important;
+    border: 1px solid #2d9cdb;
+  }
+}
