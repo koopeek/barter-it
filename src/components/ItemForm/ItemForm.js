@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
-import { addNewItem } from '../../redux/actions/user';
+import { createNewUserItem } from '../../redux/user/userActions';
 import { categories, conditions } from '../../assets/selectOptions.js';
 
 import Input from '../Input/Input';
@@ -12,7 +12,7 @@ const ItemForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmitForm = values => {
-    dispatch(addNewItem(values));
+    dispatch(createNewUserItem(values));
   };
 
   const validate = ({ name, mark, category, condition, description }) => {

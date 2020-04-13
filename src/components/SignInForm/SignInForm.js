@@ -2,11 +2,16 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
 import ROUTES from '../../assets/routes';
+import { authUser } from '../../redux/user/userActions';
 import Input from '../Input/Input';
+import { useDispatch } from 'react-redux';
 import './SignInForm.scss';
 
 const SingInForm = () => {
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
+  const handleSubmit = values => {
+    dispatch(authUser(values));
+  };
   const validate = () => {};
 
   return (
