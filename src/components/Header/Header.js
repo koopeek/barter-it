@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import ROUTES from '../../assets/routes';
+import ROUTES from '../../routes/routes';
 import NewItemButton from '../Buttons/NewItemButton/NewItemButton';
 import MyAccountButton from '../Buttons/MyAccountButton/MyAccountButton';
 import { useSelector } from 'react-redux';

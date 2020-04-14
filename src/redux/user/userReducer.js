@@ -3,6 +3,7 @@ import { SIGN_IN_SUCCESS, CREATE_NEW_ITEM_SUCCESS } from './userActionTypes';
 const initialState = {
   isLogged: localStorage.getItem('token') ? true : false,
   email: '',
+  id: '',
   items: []
 };
 
@@ -11,6 +12,7 @@ const user = (state = initialState, action) => {
     case SIGN_IN_SUCCESS:
       return {
         ...state,
+        ...action.payload,
         isLogged: true
       };
     case CREATE_NEW_ITEM_SUCCESS:

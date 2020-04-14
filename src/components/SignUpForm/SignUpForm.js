@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../assets/routes';
+import ROUTES from '../../routes/routes';
 import Input from '../Input/Input';
 import './SignUpForm.scss';
 

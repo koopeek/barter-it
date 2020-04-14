@@ -6,34 +6,35 @@ export const authUser = credentials => {
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
 
-    await fetch(`${process.env.API_URL}/login`, {
+    await fetch(`http://barter-it-api.herokuapp.com/login`, {
       method: 'POST',
-      mode: 'cors',
+      // mode: 'cors',
       body: JSON.stringify(credentials),
       headers: headers
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then(response => {
-        localStorage.setItem('token', response);
-        dispatch(signInSuccess());
+        localStorage.setItem('token', response.token);
+        dispatch(signInSuccess(response));
         window.location.pathname = '/';
       })
       .catch(err => console.log(err));
   };
 };
 
-export const createNewUserItem = item => {
+export const createNewItem = item => {
   return async dispatch => {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     headers.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
 
-    await fetch(`${process.env.API_URL}/items`, {
-      method: 'POST',
-      mode: 'cors',
-      body: JSON.stringify(item),
+    await fetch(`http://barter-it-api.herokuapp.com/items`, {
+      method: 'GET',
+      // mode: 'no-cors',
+      //body: JSON.stringify(item),
       headers: headers
+      //credentials: 'include'
     })
       .then(res => res.json())
       .then(res => dispatch(createItemSuccess(res)))
@@ -48,8 +49,9 @@ export const createItemSuccess = item => {
   };
 };
 
-export const signInSuccess = token => {
+export const signInSuccess = user => {
   return {
-    type: SIGN_IN_SUCCESS
+    type: SIGN_IN_SUCCESS,
+    payload: user
   };
 };
