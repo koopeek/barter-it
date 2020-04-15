@@ -3,9 +3,9 @@ import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
 import ROUTES from '../../routes/routes';
 import Input from '../Input/Input';
-import './SignUpForm.scss';
+import './RegisterForm.scss';
 
-const SignUpForm = () => {
+const RegisterForm = () => {
   const handleSubmit = () => {};
   const validate = () => {};
 
@@ -34,7 +34,7 @@ const SignUpForm = () => {
             </div>
             <div className="form__info">
               <span>Posiadasz już konto?</span>
-              <Link to={ROUTES.ACCOUNT_SIGN_IN}> Zaloguj się</Link>
+              <Link to={ROUTES.ACCOUNT_LOGIN}> Zaloguj się</Link>
             </div>
           </form>
         )}
@@ -43,4 +43,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;

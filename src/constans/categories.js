@@ -1,11 +1,4 @@
-const conditions = [
-  { type: 'SELECT', label: '-Wybierz-' },
-  { type: 'VERY_GOOD', label: 'Bardzo dobry' },
-  { type: 'GOOD', label: 'Dobry' },
-  { type: 'DAMAGED', label: 'Uszkodzony' }
-];
-
-const categories = [
+const CATEGORIES = [
   { type: 'SELECT', label: '-Wybierz-' },
   { type: 'AUTOMOTIVE', label: 'Motoryzacja' },
   { type: 'CLOTHES', label: 'Odzież' },
@@ -14,4 +7,4 @@ const categories = [
   { type: 'FURNITURE', label: 'Meble' }
 ];
 
-export { categories, conditions };
+export default CATEGORIES;

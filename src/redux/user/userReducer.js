@@ -1,7 +1,6 @@
-import { SIGN_IN_SUCCESS, CREATE_NEW_ITEM_SUCCESS } from './userActionTypes';
+import { CREATE_NEW_ITEM_SUCCESS } from './userActionTypes';
 
 const initialState = {
-  isLogged: localStorage.getItem('token') ? true : false,
   email: '',
   id: '',
   items: []
@@ -9,19 +8,12 @@ const initialState = {
 
 const user = (state = initialState, action) => {
   switch (action.type) {
-    case SIGN_IN_SUCCESS:
-      return {
-        ...state,
-        ...action.payload,
-        isLogged: true
-      };
     case CREATE_NEW_ITEM_SUCCESS:
       return {
         ...state,
         items: [...state.items, action.payload]
       };
     default:
-      console.log('default');
       return state;
   }
 };

@@ -2,10 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { createNewItem } from '../../redux/user/userActions';
-import { categories, conditions } from '../../assets/selectOptions.js';
-
+import CATEGORIES from '../../constans/categories';
+import ITEM_CONDITIONS from '../../constans/itemConditions';
 import Input from '../Input/Input';
-
 import './ItemForm.scss';
 
 const ItemForm = () => {
@@ -50,7 +49,7 @@ const ItemForm = () => {
             <Field
               name="category"
               component={Input}
-              options={categories}
+              options={CATEGORIES}
               type="select"
               label="Kategoria"
             />
@@ -59,7 +58,7 @@ const ItemForm = () => {
             <Field
               name="condition"
               component={Input}
-              options={conditions}
+              options={ITEM_CONDITIONS}
               type="select"
               label="Stan"
             />

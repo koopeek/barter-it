@@ -1,16 +1,17 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../routes/routes';
-import { authUser } from '../../redux/user/userActions';
-import Input from '../Input/Input';
+import { loginUser } from '../../redux/auth/authActions';
 import { useDispatch } from 'react-redux';
-import './SignInForm.scss';
+import Input from '../Input/Input';
+import ROUTES from '../../routes/routes';
+import './LoginForm.scss';
 
-const SingInForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
+
   const handleSubmit = values => {
-    dispatch(authUser(values));
+    dispatch(loginUser(values));
   };
   const validate = () => {};
 
@@ -31,7 +32,7 @@ const SingInForm = () => {
             </div>
             <div className="form__info">
               <span>Nie posiadasz konta?</span>
-              <Link to={ROUTES.ACCOUNT_SIGN_UP}> Zarejestruj się</Link>
+              <Link to={ROUTES.ACCOUNT_REGISTER}> Zarejestruj się</Link>
             </div>
           </form>
         )}
@@ -40,4 +41,4 @@ const SingInForm = () => {
   );
 };
 
-export default SingInForm;
+export default LoginForm;

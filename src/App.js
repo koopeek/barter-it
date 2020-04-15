@@ -6,8 +6,8 @@ import ROUTES from './routes/routes';
 import Header from './components/Header/Header';
 import Main from './views/Main/Main';
 import NewItem from './views/NewItem/NewItem';
-import SignIn from './views/SignIn/SignIn';
-import SignUp from './views/SignUp/SignUp';
+import Login from './views/Login/Login';
+import Register from './views/Register/Register';
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Switch>
           <Route exact path={ROUTES.MAIN} component={Main} />
           <Route path={ROUTES.NEW_ITEM} component={NewItem} />
-          <Route path={ROUTES.ACCOUNT_SIGN_IN} component={SignIn} />
-          <Route path={ROUTES.ACCOUNT_SIGN_UP} component={SignUp} />
+          <Route path={ROUTES.ACCOUNT_LOGIN} component={Login} />
+          <Route path={ROUTES.ACCOUNT_REGISTER} component={Register} />
         </Switch>
       </Router>
     </Provider>

@@ -24,7 +24,7 @@ const Header = ({ location }) => {
     };
   });
 
-  const isUserLogged = useSelector(state => state.user.isLogged);
+  const isUserLogged = useSelector(state => state.auth.isLogged);
 
   const toggleHamburger = () => {
     if (hamburger && navList) {
@@ -36,14 +36,14 @@ const Header = ({ location }) => {
   const renderNavList = () => {
     return (
       <>
-        {location.pathname !== ROUTES.ACCOUNT_SIGN_IN &&
-        location.pathname !== ROUTES.ACCOUNT_SIGN_UP ? (
+        {location.pathname !== ROUTES.ACCOUNT_LOGIN &&
+        location.pathname !== ROUTES.ACCOUNT_REGISTER ? (
           <>
             <ul className="navigation__list">
               {renderNewItemButton()}
               <li className="navigation__list__item">
                 <MyAccountButton
-                  path={isUserLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_SIGN_IN}
+                  path={isUserLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN}
                 />
               </li>
             </ul>
