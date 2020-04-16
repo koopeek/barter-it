@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../../assets/routes';
+import ROUTES from '../../../routes/routes';
 import './NewItemButton.scss';
 
 const NewItemButton = () => {

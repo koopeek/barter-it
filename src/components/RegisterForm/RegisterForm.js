@@ -1,17 +1,17 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../assets/routes';
+import ROUTES from '../../routes/routes';
 import Input from '../Input/Input';
-import './SignInForm.scss';
+import './RegisterForm.scss';
 
-const SingInForm = () => {
+const RegisterForm = () => {
   const handleSubmit = () => {};
   const validate = () => {};
 
   return (
     <div className="form-wrapper">
-      <h2>Zaloguj się</h2>
+      <h2>Zarejestruj się</h2>
       <Form onSubmit={handleSubmit} validate={validate}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit} autoComplete="off" className="form">
@@ -21,12 +21,20 @@ const SingInForm = () => {
             <div className="form__field">
               <Field name="password" component={Input} type="password" label="Hasło" />
             </div>
+            <div className="form__field">
+              <Field
+                name="repeatedPassword"
+                component={Input}
+                type="password"
+                label="Powtórz hasło"
+              />
+            </div>
             <div className="form__buttons">
-              <button type="submit">Zaloguj</button>
+              <button type="submit">Zarejestruj się</button>
             </div>
             <div className="form__info">
-              <span>Nie posiadasz konta?</span>
-              <Link to={ROUTES.ACCOUNT_SIGN_UP}> Zarejestruj się</Link>
+              <span>Posiadasz już konto?</span>
+              <Link to={ROUTES.ACCOUNT_LOGIN}> Zaloguj się</Link>
             </div>
           </form>
         )}
@@ -35,4 +43,4 @@ const SingInForm = () => {
   );
 };
 
-export default SingInForm;
+export default RegisterForm;

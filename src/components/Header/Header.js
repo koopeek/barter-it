@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import ROUTES from '../../assets/routes';
+import ROUTES from '../../routes/routes';
 import NewItemButton from '../Buttons/NewItemButton/NewItemButton';
 import MyAccountButton from '../Buttons/MyAccountButton/MyAccountButton';
 import { useSelector } from 'react-redux';
@@ -24,7 +24,7 @@ const Header = ({ location }) => {
     };
   });
 
-  const isUserLogged = useSelector(state => state.user.isLogged);
+  const isLogged = useSelector(state => state.auth.isLogged);
 
   const toggleHamburger = () => {
     if (hamburger && navList) {
@@ -36,15 +36,13 @@ const Header = ({ location }) => {
   const renderNavList = () => {
     return (
       <>
-        {location.pathname !== ROUTES.ACCOUNT_SIGN_IN &&
-        location.pathname !== ROUTES.ACCOUNT_SIGN_UP ? (
+        {location.pathname !== ROUTES.ACCOUNT_LOGIN &&
+        location.pathname !== ROUTES.ACCOUNT_REGISTER ? (
           <>
             <ul className="navigation__list">
               {renderNewItemButton()}
               <li className="navigation__list__item">
-                <MyAccountButton
-                  path={isUserLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_SIGN_IN}
-                />
+                <MyAccountButton path={isLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN} />
               </li>
             </ul>
             <button className="navigation__hamburger" onClick={() => toggleHamburger()}>

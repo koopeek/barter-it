@@ -1,17 +1,23 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../assets/routes';
+import { loginUser } from '../../redux/auth/authActions';
+import { useDispatch } from 'react-redux';
 import Input from '../Input/Input';
-import './SignUpForm.scss';
+import ROUTES from '../../routes/routes';
+import './LoginForm.scss';
 
-const SignUpForm = () => {
-  const handleSubmit = () => {};
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = values => {
+    dispatch(loginUser(values));
+  };
   const validate = () => {};
 
   return (
     <div className="form-wrapper">
-      <h2>Zarejestruj się</h2>
+      <h2>Zaloguj się</h2>
       <Form onSubmit={handleSubmit} validate={validate}>
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit} autoComplete="off" className="form">
@@ -21,20 +27,12 @@ const SignUpForm = () => {
             <div className="form__field">
               <Field name="password" component={Input} type="password" label="Hasło" />
             </div>
-            <div className="form__field">
-              <Field
-                name="repeatedPassword"
-                component={Input}
-                type="password"
-                label="Powtórz hasło"
-              />
-            </div>
             <div className="form__buttons">
-              <button type="submit">Zarejestruj się</button>
+              <button type="submit">Zaloguj</button>
             </div>
             <div className="form__info">
-              <span>Posiadasz już konto?</span>
-              <Link to={ROUTES.ACCOUNT_SIGN_IN}> Zaloguj się</Link>
+              <span>Nie posiadasz konta?</span>
+              <Link to={ROUTES.ACCOUNT_REGISTER}> Zarejestruj się</Link>
             </div>
           </form>
         )}
@@ -43,4 +41,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default LoginForm;
