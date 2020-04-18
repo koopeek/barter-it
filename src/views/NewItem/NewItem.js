@@ -5,8 +5,8 @@ import './NewItem.scss';
 const NewItem = () => {
   return (
     <div>
-      <div className="new-item-content">
-        <div className="new-item-content__form">
+      <div className="new-item-view-content">
+        <div className="new-item-view-content__form">
           <ItemForm />
         </div>
       </div>

@@ -1,4 +1,4 @@
-.form-wrapper {
+.login-form-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,11 +16,11 @@
   }
 }
 
-.form {
-  // display: flex;
-  // flex-direction: column;
-  // width: 90%;
-  // margin: auto;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
 
   &__field {
     width: 100%;
@@ -30,16 +30,23 @@
 
   &__buttons {
     width: 100%;
+    margin-top: 20px;
 
     .button-disabled {
       opacity: 0.5;
     }
 
     button {
-      height: 30px;
       width: 100%;
-      font-weight: 500;
+      height: 35px;
+      color: #ffffff;
+      background-color: #2d9cdb;
+      font-size: 14px;
+      font-family: inherit;
+      border-radius: 3px;
       text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
     }
   }
 

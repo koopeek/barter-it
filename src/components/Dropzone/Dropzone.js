@@ -16,7 +16,7 @@ const Dropzone = ({ input }) => {
   return (
     <div {...getRootProps()} className="dropzone">
       <input {...getInputProps()} />
-      <p>Przeciągnij i upuść tutaj, lub kliknij aby wybrać pliki</p>
+      <p className="dropzone__info">Przeciągnij i upuść tutaj, lub kliknij aby wybrać pliki</p>
     </div>
   );
 };

@@ -1,31 +1,34 @@
-.form-newItem {
+.new-item-form {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
-  //max-width: 500px;
+  margin-bottom: 20px;
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-  }
-
-  &__left {
-    min-width: 50% !important;
+  &__fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 
     @media (max-width: 1024px) {
-      width: 80%;
+      flex-direction: column;
+      align-items: center;
     }
-  }
 
-  &__right {
-    width: 45%;
+    &-data {
+      width: 50%;
 
-    @media (max-width: 1024px) {
-      width: 80%;
+      @media (max-width: 1024px) {
+        width: 80%;
+      }
+    }
+
+    &-dropzone {
+      width: 45%;
+
+      @media (max-width: 1024px) {
+        width: 80%;
+      }
     }
   }
 
@@ -36,7 +39,7 @@
 
     &--textarea {
       width: 100%;
-      min-height: 100px;
+      min-height: 150px;
     }
 
     &--dropzone {
@@ -47,17 +50,28 @@
   &__buttons {
     display: flex;
     justify-content: flex-end;
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      justify-content: center;
+      width: 100%;
+    }
 
     button {
-      width: 70px;
-      height: 30px;
+      width: 150px;
+      height: 35px;
       color: #ffffff;
       background-color: #2d9cdb;
       font-size: 14px;
       font-family: inherit;
+      text-transform: uppercase;
       border-radius: 3px;
       cursor: pointer;
+
+      @media (max-width: 1024px) {
+        width: 80%;
+      }
     }
   }
 }
