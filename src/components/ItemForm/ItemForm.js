@@ -33,7 +33,7 @@ const ItemForm = () => {
     if (!description || description.length < 10) {
       errors.description = 'Opis przedmiotu musi zawierać conajmniej 10 znaków!';
     }
-    // return errors;
+    return errors;
   };
 
   return (
