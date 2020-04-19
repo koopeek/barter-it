@@ -1,11 +1,11 @@
 import React from 'react';
 import './Input.scss';
 
-const Input = ({ input, meta, label, options, ...rest }) => {
+const Input = ({ input, meta, label, options, placeholder }) => {
   const renderInput = param => {
     switch (param) {
       case 'text':
-        return <input {...input} className="input__field" />;
+        return <input {...input} placeholder={placeholder} className="input__field" />;
       case 'password':
         return <input {...input} className="input__field" />;
       case 'email':

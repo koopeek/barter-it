@@ -5,7 +5,7 @@ import './Register.scss';
 const Register = () => {
   return (
     <div>
-      <div className="register">
+      <div className="register-view">
         <RegisterForm />
       </div>
     </div>

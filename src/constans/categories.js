@@ -1,5 +1,5 @@
 const CATEGORIES = [
-  { type: 'SELECT', label: '-Wybierz-' },
+  //{ type: 'SELECT', label: '-Wybierz-' },
   { type: 'AUTOMOTIVE', label: 'Motoryzacja' },
   { type: 'CLOTHES', label: 'Odzież' },
   { type: 'JEWELERY_AND_WATCHES', label: 'Biżuteria i zegarki' },
