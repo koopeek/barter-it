@@ -3,5 +3,13 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "no-use-before-define": ["error", { "functions": false, "classes": false, "variables": false }]
+  },
+  "globals": { "fetch": false, "localStorage": false }
 }
