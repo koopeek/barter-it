@@ -10,7 +10,7 @@ const RegisterForm = () => {
   const validate = () => {};
 
   return (
-    <div className="form-wrapper">
+    <article className="form-wrapper">
       <h2>Zarejestruj się</h2>
       <Form onSubmit={handleSubmit} validate={validate}>
         {({ handleSubmit }) => (
@@ -39,7 +39,7 @@ const RegisterForm = () => {
           </form>
         )}
       </Form>
-    </div>
+    </article>
   );
 };
 

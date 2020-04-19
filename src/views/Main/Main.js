@@ -7,17 +7,14 @@ import categories from '../../constans/categories';
 const Main = () => {
   return (
     <main className="main-view">
-      <div className="main-view__info">
+      <section className="main-view__info">
         <Info />
-      </div>
+      </section>
       <section className="main-view__categories">
-        <div className="main-view__categories__header">
-          <h2>Kategorie</h2>
-        </div>
-
-        <article className="main-view__categories__list">
+        <h2 className="main-view__categories__header">Kategorie</h2>
+        <div className="main-view__categories__list">
           <CategoriesList categories={categories} />
-        </article>
+        </div>
       </section>
     </main>
   );

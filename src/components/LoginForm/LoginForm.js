@@ -40,7 +40,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-wrapper">
+    <article className="login-form-wrapper">
       <h2>Zaloguj się</h2>
       <Form onSubmit={handleSubmitLoginForm} validate={validate}>
         {({ handleSubmit }) => (
@@ -68,7 +68,7 @@ const LoginForm = () => {
           </form>
         )}
       </Form>
-    </div>
+    </article>
   );
 };
 

@@ -4,11 +4,11 @@ import './Login.scss';
 
 const Login = () => {
   return (
-    <div>
+    <main>
       <div className="login-view">
         <LoginForm />
       </div>
-    </div>
+    </main>
   );
 };
 
