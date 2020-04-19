@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { createNewItem } from '../../redux/user/userActions';
+import Dropzone from '../Dropzone/Dropzone';
 import CATEGORIES from '../../constans/categories';
 import ITEM_CONDITIONS from '../../constans/itemConditions';
 import Input from '../Input/Input';
@@ -38,36 +39,49 @@ const ItemForm = () => {
   return (
     <Form onSubmit={handleSubmitForm} validate={validate}>
       {({ handleSubmit }) => (
-        <form onSubmit={handleSubmit} autoComplete="off" className="form">
-          <div className="form__field">
-            <Field name="name" component={Input} type="text" label="Nazwa" />
+        <form onSubmit={handleSubmit} autoComplete="off" className="new-item-form">
+          <div className="new-item-form__fields">
+            <div className="new-item-form__fields-data">
+              <div className="new-item-form__field">
+                <Field name="name" component={Input} type="text" label="Nazwa" />
+              </div>
+              <div className="new-item-form__field">
+                <Field name="mark" component={Input} type="text" label="Marka" />
+              </div>
+              <div className="new-item-form__field">
+                <Field
+                  name="category"
+                  component={Input}
+                  options={CATEGORIES}
+                  type="select"
+                  label="Kategoria"
+                />
+              </div>
+              <div className="new-item-form__field">
+                <Field
+                  name="condition"
+                  component={Input}
+                  options={ITEM_CONDITIONS}
+                  type="select"
+                  label="Stan"
+                />
+              </div>
+              <div className="new-item-form__field new-item-form__field--textarea">
+                <Field
+                  name="description"
+                  component={Input}
+                  type="textarea"
+                  label="Opis przedmiotu"
+                />
+              </div>
+            </div>
+            <div className="new-item-form__fields-dropzone">
+              <div className="new-item-form__field new-item-form__field--dropzone">
+                <Field name="images[]" component={Dropzone} multiple />
+              </div>
+            </div>
           </div>
-          <div className="form__field">
-            <Field name="mark" component={Input} type="text" label="Marka" />
-          </div>
-          <div className="form__field">
-            <Field
-              name="category"
-              component={Input}
-              options={CATEGORIES}
-              type="select"
-              label="Kategoria"
-            />
-          </div>
-          <div className="form__field">
-            <Field
-              name="condition"
-              component={Input}
-              options={ITEM_CONDITIONS}
-              type="select"
-              label="Stan"
-            />
-          </div>
-          <div className="form__field--textarea">
-            <Field name="description" component={Input} type="textarea" label="Opis przedmiotu" />
-          </div>
-
-          <div className="form__buttons">
+          <div className="new-item-form__buttons">
             <button type="submit">Dodaj</button>
           </div>
         </form>

@@ -40,35 +40,35 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="form-wrapper">
+    <article className="login-form-wrapper">
       <h2>Zaloguj się</h2>
       <Form onSubmit={handleSubmitLoginForm} validate={validate}>
         {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit} autoComplete="off" className="form">
-            <div className="form__field">
+          <form onSubmit={handleSubmit} autoComplete="off" className="login-form">
+            <div className="login-form__field">
               <Field name="email" component={Input} type="email" label="E-mail" />
             </div>
-            <div className="form__field">
+            <div className="login-form__field">
               <Field name="password" component={Input} type="password" label="Hasło" />
             </div>
             {!loading && errorMessage && (
-              <div className="form__info form__info--error">
+              <div className="login-form__info login-form__info--error">
                 <span>{errorMessage}</span>
               </div>
             )}
-            <div className="form__buttons">
+            <div className="login-form__buttons">
               <button type="submit" className={loading ? 'button-disabled' : ''}>
                 Zaloguj
               </button>
             </div>
-            <div className="form__info">
+            <div className="login-form__info">
               <span>Nie posiadasz konta?</span>
               <Link to={ROUTES.ACCOUNT_REGISTER}>Zarejestruj się</Link>
             </div>
           </form>
         )}
       </Form>
-    </div>
+    </article>
   );
 };
 

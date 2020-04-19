@@ -2,9 +2,9 @@
   text-transform: uppercase;
 
   @media (min-width: 1024px) {
-    background-color: #2d9cdb;
     font-weight: 500;
     padding: 10px;
-    color: #ffffff !important;
+    color: #2d9cdb !important;
+    border: 1px solid #2d9cdb;
   }
 }

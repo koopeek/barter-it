@@ -4,11 +4,9 @@ import './NewItem.scss';
 
 const NewItem = () => {
   return (
-    <div>
-      <div className="new-item-content">
-        <div className="new-item-content__form">
-          <ItemForm />
-        </div>
+    <div className="new-item-view">
+      <div className="new-item-view__form">
+        <ItemForm />
       </div>
     </div>
   );

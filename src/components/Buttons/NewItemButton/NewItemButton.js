@@ -6,7 +6,7 @@ import './NewItemButton.scss';
 const NewItemButton = () => {
   return (
     <Link to={ROUTES.NEW_ITEM} className="new-item-button">
-      Dodaj nowy przedmiot
+      Dodaj przedmiot
     </Link>
   );
 };

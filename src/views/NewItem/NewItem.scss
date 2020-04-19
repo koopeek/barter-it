@@ -26,7 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.new-item-content {
+.new-item-view {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 80%;
 
     @include mobile {
       width: 100%;
