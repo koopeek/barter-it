@@ -27,7 +27,6 @@ describe('NewItemButton tests', () => {
 
     expect(button.props()).toEqual({
       children: 'Moje konto',
-      className: 'my-account-button',
       type: 'button',
       onClick: expect.any(Function)
     });

@@ -27,7 +27,6 @@ describe('NewItemButton tests', () => {
 
     expect(button.props()).toEqual({
       children: 'Dodaj przedmiot',
-      className: 'new-item-button',
       type: 'button',
       onClick: expect.any(Function)
     });
