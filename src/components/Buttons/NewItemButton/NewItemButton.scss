@@ -1,8 +1,13 @@
 .new-item-button {
   text-transform: uppercase;
+  cursor: pointer;
+
+  button {
+    font-weight: 500;
+    font-size: 14px !important;
+  }
 
   @media (min-width: 1024px) {
-    font-weight: 500;
     padding: 10px;
     color: #2d9cdb !important;
     border: 1px solid #2d9cdb;

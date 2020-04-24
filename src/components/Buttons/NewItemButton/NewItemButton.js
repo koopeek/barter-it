@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ROUTES from '../../../routes/routes';
 import './NewItemButton.scss';
 
 const NewItemButton = () => {
+  const history = useHistory();
+
+  const handleButtonClick = () => {
+    history.push(ROUTES.NEW_ITEM);
+  };
+
   return (
-    <Link to={ROUTES.NEW_ITEM} className="new-item-button">
+    <button type="button" className="new-item-button" onClick={() => handleButtonClick()}>
       Dodaj przedmiot
-    </Link>
+    </button>
   );
 };
 
