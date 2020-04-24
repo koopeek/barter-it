@@ -10,9 +10,11 @@ const MyAccountButton = ({ path }) => {
   };
 
   return (
-    <button type="button" className="my-account-button" onClick={() => handleButtonClick()}>
-      Moje konto
-    </button>
+    <div className="my-account-button">
+      <button type="button" onClick={() => handleButtonClick()}>
+        Moje konto
+      </button>
+    </div>
   );
 };
 

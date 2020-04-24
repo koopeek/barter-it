@@ -11,9 +11,11 @@ const NewItemButton = () => {
   };
 
   return (
-    <button type="button" className="new-item-button" onClick={() => handleButtonClick()}>
-      Dodaj przedmiot
-    </button>
+    <div className="new-item-button">
+      <button type="button" onClick={() => handleButtonClick()}>
+        Dodaj przedmiot
+      </button>
+    </div>
   );
 };
 
