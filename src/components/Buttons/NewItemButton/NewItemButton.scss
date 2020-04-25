@@ -1,10 +1,16 @@
 .new-item-button {
-  text-transform: uppercase;
+  button {
+    font-size: 14px !important;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 
   @media (min-width: 1024px) {
-    font-weight: 500;
-    padding: 10px;
-    color: #2d9cdb !important;
-    border: 1px solid #2d9cdb;
+    button {
+      font-weight: 500;
+      color: #2d9cdb !important;
+      border: 1px solid #2d9cdb;
+      padding: 10px;
+    }
   }
 }
