@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
-import Input from '../Input/Input';
+import { Input } from '../Input/Input';
 import './Search.scss';
 
 const Search = () => {

@@ -36,4 +36,4 @@ const Input = ({ input, meta, label, options, placeholder }) => {
   );
 };
 
-export default Input;
+export { Input };

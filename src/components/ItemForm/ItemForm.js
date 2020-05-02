@@ -5,7 +5,7 @@ import { createNewItem } from '../../redux/user/userActions';
 import Dropzone from '../Dropzone/Dropzone';
 import CATEGORIES from '../../constans/categories';
 import ITEM_CONDITIONS from '../../constans/itemConditions';
-import Input from '../Input/Input';
+import { Input } from '../Input/Input';
 import './ItemForm.scss';
 
 const ItemForm = () => {

@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import { LoginFormWrapper } from '../../components/LoginFormWrapper/LoginFormWrapper';
 import './Login.scss';
 
 const Login = () => {
   return (
     <main>
       <div className="login-view">
-        <LoginForm />
+        <LoginFormWrapper />
       </div>
     </main>
   );
