@@ -3,7 +3,7 @@ import './CategoriesList.scss';
 
 const CategoriesList = ({ categories }) => {
   const handleButtonClick = category => {
-    //TODO: IMPLEMENT
+    // TODO: IMPLEMENT
   };
 
   const renderCategoriesListItems = () => {

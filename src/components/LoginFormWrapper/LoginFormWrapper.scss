@@ -1,0 +1,17 @@
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #dddddd;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+
+  h2 {
+    margin: auto;
+  }
+
+  @media (max-width: 1024px) {
+    border: none !important;
+  }
+}

@@ -9,7 +9,7 @@ import {
   CLEAR_ERROR_MESSAGE
 } from './authActionTypes';
 
-export const loginUser = credentials => {
+export const loginUser = (credentials, history) => {
   return async dispatch => {
     dispatch(loginRequest());
     await fetch(`https://barter-it-api.herokuapp.com/login`, {
@@ -22,14 +22,16 @@ export const loginUser = credentials => {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-          dispatch(loginSuccess(res));
+        const { token } = res;
+        if (token) {
+          localStorage.setItem('token', token);
+          dispatch(loginSuccess());
+          history.push('/');
         } else {
           dispatch(loginFailure('Nieprawidłowy adres e-mail lub hasło'));
         }
       })
-      .catch(err => dispatch(loginFailure(err)));
+      .catch(err => dispatch(loginFailure('Wystąpił nieoczekiwany błąd')));
   };
 };
 
