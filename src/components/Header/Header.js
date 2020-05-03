@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { NavLink } from '../NavLink/NavLink';
 import ROUTES from '../../routes/routes';
-import NewItemButton from '../Buttons/NewItemButton/NewItemButton';
-import MyAccountButton from '../Buttons/MyAccountButton/MyAccountButton';
 import './Header.scss';
 
 const Header = ({ location }) => {
@@ -42,7 +41,10 @@ const Header = ({ location }) => {
             <ul className="navigation__list">
               {renderNewItemButton()}
               <li className="navigation__list__item">
-                <MyAccountButton path={isLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN} />
+                <NavLink
+                  contentText="Moje konto"
+                  path={isLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN}
+                />
               </li>
             </ul>
             <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
@@ -61,7 +63,7 @@ const Header = ({ location }) => {
       <>
         {location.pathname !== ROUTES.NEW_ITEM ? (
           <li className="navigation__list__item">
-            <NewItemButton />
+            <NavLink contentText="Dodaj przedmiot" path={ROUTES.NEW_ITEM} />
           </li>
         ) : null}
       </>
