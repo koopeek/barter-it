@@ -9,6 +9,7 @@ import './LoginForm.scss';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+
   const history = useHistory();
 
   const { loading, errorMessage } = useSelector(state => state.auth);
@@ -59,7 +60,7 @@ const LoginForm = () => {
           </div>
           <div className="login-form__info">
             <p>Nie masz konta?</p>
-            <Link to={ROUTES.ACCOUNT_REGISTER}> Zarejestruj się</Link>
+            <Link to={ROUTES.ACCOUNT_REGISTER}>Zarejestruj się</Link>
           </div>
         </form>
       )}
