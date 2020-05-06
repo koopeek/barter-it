@@ -1,0 +1,30 @@
+.search-submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #2d9cdb !important;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &__icon {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__textContent {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+}

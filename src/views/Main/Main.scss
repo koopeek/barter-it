@@ -2,14 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
+  margin-top: 15px;
 
   &__search-box {
-    margin-top: 10px;
-    height: 10vh;
-    width: 85%;
+    height: 70px;
+    width: 95%;
     max-width: 1300px;
     background-color: lighten(#2d9cdb, 11);
     border-radius: 5px;
+
+    @media (min-width: 1024px) {
+      width: 85%;
+    }
   }
 }
