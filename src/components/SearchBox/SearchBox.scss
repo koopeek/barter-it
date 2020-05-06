@@ -1,0 +1,16 @@
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  width: 100%;
+  height: 100%;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 60%;
+  }
+}

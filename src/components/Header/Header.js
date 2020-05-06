@@ -74,9 +74,9 @@ const Header = ({ location }) => {
     <header className="header">
       <nav className="navigation">
         <div className="navigation__logo">
-          <h2>
+          <h1>
             <Link to="/">Barter it</Link>
-          </h2>
+          </h1>
         </div>
         {renderNavList()}
       </nav>

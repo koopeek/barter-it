@@ -17,6 +17,7 @@ $edge: 1024px;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  //border-bottom: 1px solid #eeeeee;
 }
 
 .navigation {
@@ -26,6 +27,7 @@ $edge: 1024px;
   align-items: center;
   min-height: 10vh;
   width: 85%;
+  max-width: 1300px;
 
   a {
     text-decoration: none;
