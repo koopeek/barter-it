@@ -8,6 +8,7 @@ import Main from './views/Main/Main';
 import NewItem from './views/NewItem/NewItem';
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
+import { MyAccount } from './views/MyAccount/MyAccount';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path={ROUTES.NEW_ITEM} component={NewItem} />
           <Route path={ROUTES.ACCOUNT_LOGIN} component={Login} />
           <Route path={ROUTES.ACCOUNT_REGISTER} component={Register} />
+          <Route path={ROUTES.ACCOUNT_MY_ACCOUNT} component={MyAccount} />
         </Switch>
       </Router>
     </Provider>

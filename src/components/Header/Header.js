@@ -43,7 +43,7 @@ const Header = ({ location }) => {
               <li className="navigation__list__item">
                 <NavLink
                   contentText="Moje konto"
-                  path={isLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN}
+                  path={isLogged ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
                 />
               </li>
             </ul>
