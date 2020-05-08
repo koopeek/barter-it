@@ -7,4 +7,4 @@ const CATEGORIES = [
   { type: 'FURNITURE', label: 'Meble' }
 ];
 
-export default CATEGORIES;
+export { CATEGORIES };

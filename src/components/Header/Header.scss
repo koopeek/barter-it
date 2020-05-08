@@ -25,7 +25,12 @@ $edge: 1024px;
   overflow-x: hidden;
   align-items: center;
   min-height: 10vh;
-  width: 85%;
+  width: 95%;
+  max-width: 1300px;
+
+  @media (min-width: 1024px) {
+    width: 85%;
+  }
 
   a {
     text-decoration: none;
@@ -51,7 +56,6 @@ $edge: 1024px;
     width: 50%;
     font-size: 14px;
     text-transform: uppercase;
-    //margin-right: 15%;
 
     @include mobile {
       position: absolute;
@@ -99,7 +103,6 @@ $edge: 1024px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-right: 40px;
     transition: transform 0.2s 0.2s ease-in-out;
     z-index: 1;
 
