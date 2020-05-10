@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { createNewItem } from '../../redux/user/userActions';
 import Dropzone from '../Dropzone/Dropzone';
-import { CATEGORIES } from '../../constans/categories';
-import ITEM_CONDITIONS from '../../constans/itemConditions';
+import { CATEGORIES } from '../../global/categories';
+import ITEM_CONDITIONS from '../../global/itemConditions';
 import { Input } from '../Input/Input';
 import './ItemForm.scss';
 

@@ -13,7 +13,8 @@
     "react/prop-types": [0, {}],
     "react/jsx-props-no-spreading": [0, {}],
     "no-undef": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "treatUndefinedAsUnspecified": true
   },
   "globals": { "fetch": false, "localStorage": false }
 }

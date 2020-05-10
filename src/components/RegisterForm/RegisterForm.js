@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Link } from 'react-router-dom';
-import ROUTES from '../../routes/routes';
+import ROUTES from '../../global/routes';
 import { Input } from '../Input/Input';
 import './RegisterForm.scss';
 

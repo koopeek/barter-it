@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { loginUser, clearErrorMessage } from '../../../redux/auth/authActions';
 import { Input } from '../../Input/Input';
-import ROUTES from '../../../routes/routes';
+import ROUTES from '../../../global/routes';
 import './LoginForm.scss';
 
 const LoginForm = () => {

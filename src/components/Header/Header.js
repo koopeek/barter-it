@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { NavLink } from '../NavLink/NavLink';
-import ROUTES from '../../routes/routes';
+import ROUTES from '../../global/routes';
 import './Header.scss';
 
 const Header = ({ location }) => {
