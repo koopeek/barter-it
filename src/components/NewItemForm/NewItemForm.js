@@ -1,43 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Form, Field } from 'react-final-form';
-import { createNewItem } from '../../redux/user/userActions';
 import Dropzone from '../Dropzone/Dropzone';
 import { CATEGORIES } from '../../global/categories';
 import ITEM_CONDITIONS from '../../global/itemConditions';
 import { Input } from '../Input/Input';
-import './ItemForm.scss';
+import './NewItemForm.scss';
 
-const ItemForm = () => {
-  const dispatch = useDispatch();
-
-  const handleSubmitForm = values => {
-    dispatch(createNewItem(values));
-  };
-
-  const validate = ({ name, mark, category, condition, description }) => {
-    const errors = {};
-
-    if (!name || name.length < 3) {
-      errors.name = 'Nazwa przedmiotu musi zawierać conajmniej 3 znaki!';
-    }
-    if (!mark) {
-      errors.mark = 'Musisz podać markę przedmiotu!';
-    }
-    if (!category || category === 'SELECT') {
-      errors.category = 'Musisz wybrać kategorie!';
-    }
-    if (!condition || condition === 'SELECT') {
-      errors.condition = 'Musisz wybrać stan przedmiotu!';
-    }
-    if (!description || description.length < 10) {
-      errors.description = 'Opis przedmiotu musi zawierać conajmniej 10 znaków!';
-    }
-    return errors;
-  };
-
+const NewItemForm = ({ validateFormValues, handleSubmitForm }) => {
   return (
-    <Form onSubmit={handleSubmitForm} validate={validate}>
+    <Form onSubmit={handleSubmitForm} validate={validateFormValues}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit} autoComplete="off" className="new-item-form">
           <div className="new-item-form__fields">
@@ -90,4 +61,4 @@ const ItemForm = () => {
   );
 };
 
-export default ItemForm;
+export { NewItemForm };
