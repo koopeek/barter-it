@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Field } from 'react-final-form';
 import Dropzone from '../Dropzone/Dropzone';
 import { CATEGORIES } from '../../global/categories';
@@ -59,6 +60,11 @@ const NewItemForm = ({ validateFormValues, handleSubmitForm }) => {
       )}
     </Form>
   );
+};
+
+NewItemForm.propTypes = {
+  validateFormValues: PropTypes.func.isRequired,
+  handleSubmitForm: PropTypes.func.isRequired
 };
 
 export { NewItemForm };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createNewItem } from '../../redux/user/userActions';
+import { createNewItem, getItems } from '../../redux/user/userActions';
 import { useDispatch } from 'react-redux';
 import { NewItemForm } from '../../components/NewItemForm/NewItemForm';
 
@@ -7,7 +7,8 @@ const NewItemFormContainer = () => {
   const dispatch = useDispatch();
 
   const handleSubmitForm = values => {
-    dispatch(createNewItem(values));
+    dispatch(getItems());
+    //dispatch(createNewItem(values));
   };
 
   const validateFormValues = ({ name, mark, category, condition, description }) => {
