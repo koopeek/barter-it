@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { NavLink } from '../NavLink/NavLink';
-import ROUTES from '../../routes/routes';
+import ROUTES from '../../global/routes';
 import './Header.scss';
 
 const Header = ({ location }) => {
@@ -21,7 +21,7 @@ const Header = ({ location }) => {
         navList.classList.remove('navigation__list--active');
       }
     };
-  });
+  }, [hamburger, navList]);
 
   const isLogged = useSelector(state => state.auth.isLogged);
 
@@ -43,7 +43,7 @@ const Header = ({ location }) => {
               <li className="navigation__list__item">
                 <NavLink
                   contentText="Moje konto"
-                  path={isLogged ? ROUTES.ACCOUNT_SETTINGS : ROUTES.ACCOUNT_LOGIN}
+                  path={isLogged ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
                 />
               </li>
             </ul>
@@ -84,4 +84,6 @@ const Header = ({ location }) => {
   );
 };
 
-export default withRouter(Header);
+const HeaderWithRouter = withRouter(Header);
+
+export { HeaderWithRouter };

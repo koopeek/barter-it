@@ -6,6 +6,8 @@
 .pnp.js
 /.netlify
 
+./.idea
+
 # testing
 /coverage
 

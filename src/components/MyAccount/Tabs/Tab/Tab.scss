@@ -1,0 +1,10 @@
+.tab {
+  margin-right: 10px;
+  cursor: pointer;
+  height: 25px;
+
+  &--active {
+    font-weight: 500;
+    border-bottom: 2px dashed darken(#2c9cdb, 5);
+  }
+}

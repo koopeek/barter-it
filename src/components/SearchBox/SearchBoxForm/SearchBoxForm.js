@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Input } from '../../Input/Input';
 import { SearchSubmitButton } from './SearchSubmitButton/SearchSubmitButton';
-import { CATEGORIES } from '../../../constans/categories';
+import { CATEGORIES } from '../../../global/categories';
 import './SearchBoxForm.scss';
 
 const SearchBoxForm = () => {
