@@ -1,14 +1,45 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Field } from 'react-final-form';
+import { loginUser, clearErrorMessage } from '../../../redux/auth/authActions';
 import { Input } from '../../Input/Input';
 import ROUTES from '../../../global/routes';
 import './LoginForm.scss';
 
-const LoginForm = ({ validateFormValues, handleSubmitForm, loading, errorMessage }) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  const { loading, errorMessage } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearErrorMessage());
+    };
+  }, [dispatch]);
+
+  const validate = ({ email, password }) => {
+    const errors = {};
+
+    if (!email) {
+      errors.email = 'Wprowadź adres e-mail';
+    }
+
+    if (!password || password.length < 3) {
+      errors.password = 'Wprowadź hasło';
+    }
+
+    return errors;
+  };
+
+  const handleSubmit = values => {
+    dispatch(loginUser(values, history));
+  };
+
   return (
-    <Form onSubmit={handleSubmitForm} validate={validateFormValues}>
+    <Form onSubmit={handleSubmit} validate={validate}>
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit} autoComplete="off" className="login-form">
           <div className="login-form__field">
@@ -35,13 +66,6 @@ const LoginForm = ({ validateFormValues, handleSubmitForm, loading, errorMessage
       )}
     </Form>
   );
-};
-
-LoginForm.propTypes = {
-  validateFormValues: PropTypes.func.isRequired,
-  handleSubmitForm: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string.isRequired
 };
 
 export { LoginForm };

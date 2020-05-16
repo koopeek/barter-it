@@ -21,7 +21,7 @@ const Header = ({ location }) => {
         navList.classList.remove('navigation__list--active');
       }
     };
-  }, [hamburger, navList]);
+  });
 
   const isLogged = useSelector(state => state.auth.isLogged);
 
@@ -84,6 +84,4 @@ const Header = ({ location }) => {
   );
 };
 
-const HeaderWithRouter = withRouter(Header);
-
-export { HeaderWithRouter };
+export default withRouter(Header);

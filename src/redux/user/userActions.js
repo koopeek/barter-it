@@ -3,9 +3,8 @@ import {
   CREATE_NEW_ITEM_SUCCESS,
   CREATE_NEW_ITEM_FAILURE
 } from './userActionTypes';
-import ROUTES from '../../global/routes';
 
-export const createNewItem = (item, history) => {
+export const createNewItem = item => {
   return async dispatch => {
     dispatch(createItemRequest());
 
@@ -17,13 +16,27 @@ export const createNewItem = (item, history) => {
       method: 'POST',
       body: JSON.stringify(item),
       mode: 'cors',
-      headers
+      headers: headers
     })
       .then(res => res.json())
-      .then(res => {
-        dispatch(createItemSuccess(res));
-        history.push(`${ROUTES.ITEM_VIEW}/${res.id}`);
-      })
+      .then(res => dispatch(createItemSuccess(res)))
+      .catch(err => console.log(err));
+  };
+};
+
+export const getItems = () => {
+  return async dispatch => {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    //headers.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+    await fetch(`https://barter-it-api.herokuapp.com/items/5ebae6eba09a52723582d259`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: headers
+    })
+      .then(res => res.json())
+      //then(res => dispatch(createItemSuccess(res)))
       .catch(err => console.log(err));
   };
 };
