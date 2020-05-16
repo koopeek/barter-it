@@ -1,14 +1,33 @@
 import React from 'react';
-import { createNewItem, getItems } from '../../redux/user/userActions';
 import { useDispatch } from 'react-redux';
-import { NewItemForm } from '../../components/NewItemForm/NewItemForm';
+import { useHistory } from 'react-router';
+import { createNewItem } from '../redux/user/userActions';
+import { saveImage } from '../api/images';
+import { NewItemForm } from '../components/NewItemForm/NewItemForm';
 
 const NewItemFormContainer = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const handleSubmitForm = values => {
-    dispatch(getItems());
-    //dispatch(createNewItem(values));
+  const getImagesIds = async images => {
+    let imagesIds = [];
+    for (const image of images) {
+      imagesIds.push(await saveImage(image));
+    }
+    return imagesIds;
+  };
+
+  const handleSubmitForm = async newItemValues => {
+    const copyOfNewItemValues = { ...newItemValues };
+
+    const { images } = copyOfNewItemValues;
+
+    if (images && images.length) {
+      copyOfNewItemValues.imageIds = await getImagesIds(images);
+      delete copyOfNewItemValues.images;
+    }
+
+    dispatch(createNewItem(copyOfNewItemValues, history));
   };
 
   const validateFormValues = ({ name, mark, category, condition, description }) => {

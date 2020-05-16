@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyAccount } from '../../components/MyAccount/MyAccount';
+import { MyAccount } from '../components/MyAccount/MyAccount';
 
 const MyAccountContainer = () => {
   return <MyAccount />;

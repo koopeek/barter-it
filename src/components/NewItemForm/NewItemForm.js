@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Field } from 'react-final-form';
-import Dropzone from '../Dropzone/Dropzone';
+import { Dropzone } from '../Dropzone/Dropzone';
 import { CATEGORIES } from '../../global/categories';
 import ITEM_CONDITIONS from '../../global/itemConditions';
 import { Input } from '../Input/Input';

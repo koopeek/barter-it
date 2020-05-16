@@ -1,6 +1,16 @@
-.my-account-page {
+.my-account-page  {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 15px;
+
+  &__my-account {
+    height: 70px;
+    width: 95%;
+    max-width: 1300px;
+
+    @media (min-width: 1024px) {
+      width: 85%;
+    }
+  }
 }

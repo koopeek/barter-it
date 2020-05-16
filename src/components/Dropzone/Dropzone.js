@@ -5,11 +5,14 @@ import './Dropzone.scss';
 const Dropzone = ({ input }) => {
   const [files, setFiles] = useState([]);
 
-  const onDrop = useCallback(acceptedFiles => {
-    const newFiles = [...files, ...acceptedFiles];
-    setFiles(newFiles);
-    input.onChange(newFiles);
-  });
+  const onDrop = useCallback(
+    acceptedFiles => {
+      const newFiles = [...files, ...acceptedFiles];
+      setFiles(newFiles);
+      input.onChange(newFiles);
+    },
+    [input, files]
+  );
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
@@ -21,4 +24,4 @@ const Dropzone = ({ input }) => {
   );
 };
 
-export default Dropzone;
+export { Dropzone };

@@ -14,7 +14,7 @@
     "react/jsx-props-no-spreading": [0, {}],
     "no-undef": "off",
     "import/prefer-default-export": "off",
-    "treatUndefinedAsUnspecified": true
+    "treatUndefinedAsUnspecified": "off"
   },
   "globals": { "fetch": false, "localStorage": false }
 }
