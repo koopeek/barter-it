@@ -1,15 +1,15 @@
 import React from 'react';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
-import './Main.scss';
+import './MainPage.scss';
 
-const Main = () => {
+const MainPage = () => {
   return (
-    <main className="main-view">
-      <div className="main-view__search-box">
+    <main className="main-page">
+      <div className="main-page__search-box">
         <SearchBox />
       </div>
     </main>
   );
 };
 
-export default Main;
+export { MainPage };

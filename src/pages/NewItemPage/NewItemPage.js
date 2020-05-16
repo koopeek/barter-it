@@ -1,11 +1,11 @@
 import React from 'react';
-import { NewItemFormContainer } from '../../containers/NewItemFormContainer/NewItemFormContainer';
+import { NewItemFormContainer } from '../../containers/NewItemFormContainer';
 import './NewItemPage.scss';
 
 const NewItemPage = () => {
   return (
-    <div className="new-item-view">
-      <div className="new-item-view__form">
+    <div className="new-item-page">
+      <div className="new-item-page__form">
         <NewItemFormContainer />
       </div>
     </div>
