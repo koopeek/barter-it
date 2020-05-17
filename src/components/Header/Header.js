@@ -23,7 +23,7 @@ const Header = ({ location }) => {
     };
   }, [hamburger, navList]);
 
-  const isLogged = useSelector(state => state.auth.isLogged);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   const toggleHamburger = () => {
     if (hamburger && navList) {
@@ -43,7 +43,7 @@ const Header = ({ location }) => {
               <li className="navigation__list__item">
                 <NavLink
                   contentText="Moje konto"
-                  path={isLogged ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
+                  path={isAuthenticated ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
                 />
               </li>
             </ul>

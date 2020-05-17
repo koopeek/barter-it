@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   loading: false,
-  isLogged: localStorage.getItem('token') ? true : false,
+  isAuthenticated: localStorage.getItem('token') ? true : false,
   errorMessage: ''
 };
 
@@ -20,43 +20,43 @@ const auth = (state = initialState, action) => {
     case USER_LOGIN_REQUEST:
       return {
         loading: true,
-        isLogged: false,
+        isAuthenticated: false,
         errorMessage: ''
       };
     case USER_LOGIN_SUCCESS:
       return {
         loading: false,
-        isLogged: true,
+        isAuthenticated: true,
         errorMessage: ''
       };
     case USER_LOGIN_FAILURE:
       return {
         loading: false,
-        isLogged: false,
+        isAuthenticated: false,
         errorMessage: action.payload
       };
     case USER_LOGOUT_SUCCESS:
       return {
         loading: false,
-        isLogged: false,
+        isAuthenticated: false,
         errorMessage: ''
       };
     case USER_REGISTER_REQUEST:
       return {
         loading: true,
-        isLogged: false,
+        isAuthenticated: false,
         errorMessage: ''
       };
     case USER_REGISTER_SUCCESS:
       return {
         loading: false,
-        isLogged: true,
+        isAuthenticated: true,
         errorMessage: ''
       };
     case USER_REGISTER_FAILURE:
       return {
         loading: false,
-        isLogged: false,
+        isAuthenticated: false,
         errorMessage: action.payload
       };
     case CLEAR_ERROR_MESSAGE:
