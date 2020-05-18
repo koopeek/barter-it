@@ -1,8 +1,14 @@
 import React from 'react';
-import { HeaderWithRouter } from '../components/Header/Header';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { Header } from '../components/Header/Header';
 
 const HeaderContainer = () => {
-  return <HeaderWithRouter />;
+
+  const history = useHistory();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+  return <Header isAuthenticated={isAuthenticated} currentPathname={history.location.pathname} />;
 };
 
 export { HeaderContainer };

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { NavLink } from '../NavLink/NavLink';
 import ROUTES from '../../global/routes';
 import './Header.scss';
 
-const Header = ({ location }) => {
+const Header = ({ isAuthenticated, currentPathname }) => {
   const [hamburger, setHamburger] = useState(null);
   const [navList, setNavList] = useState(null);
 
@@ -23,8 +23,6 @@ const Header = ({ location }) => {
     };
   }, [hamburger, navList]);
 
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-
   const toggleHamburger = () => {
     if (hamburger && navList) {
       hamburger.classList.toggle('navigation__hamburger--active');
@@ -35,8 +33,8 @@ const Header = ({ location }) => {
   const renderNavList = () => {
     return (
       <>
-        {location.pathname !== ROUTES.ACCOUNT_LOGIN &&
-        location.pathname !== ROUTES.ACCOUNT_REGISTER ? (
+        {currentPathname !== ROUTES.ACCOUNT_LOGIN &&
+        currentPathname !== ROUTES.ACCOUNT_REGISTER ? (
           <>
             <ul className="navigation__list">
               {renderNewItemButton()}
@@ -61,7 +59,7 @@ const Header = ({ location }) => {
   const renderNewItemButton = () => {
     return (
       <>
-        {location.pathname !== ROUTES.NEW_ITEM ? (
+        {currentPathname !== ROUTES.NEW_ITEM ? (
           <li className="navigation__list__item">
             <NavLink contentText="Dodaj przedmiot" path={ROUTES.NEW_ITEM} />
           </li>
@@ -84,6 +82,9 @@ const Header = ({ location }) => {
   );
 };
 
-const HeaderWithRouter = withRouter(Header);
+Header.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  currentPathname: PropTypes.string.isRequired
+}
 
-export { HeaderWithRouter };
+export { Header };
