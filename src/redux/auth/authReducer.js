@@ -2,7 +2,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILURE,
-  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
@@ -35,7 +35,7 @@ const auth = (state = initialState, action) => {
         isAuthenticated: false,
         errorMessage: action.payload
       };
-    case USER_LOGOUT_SUCCESS:
+    case USER_LOGOUT:
       return {
         loading: false,
         isAuthenticated: false,
