@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from '../NavLink/NavLink';
 import ROUTES from '../../global/routes';
 import './Header.scss';
 
-const Header = ({ isAuthenticated, currentPathname }) => {
+const Header = ({ isAuthenticated, currentPathname, handleLogout, isAuthPage }) => {
   const [hamburger, setHamburger] = useState(null);
   const [navList, setNavList] = useState(null);
 
@@ -33,37 +35,32 @@ const Header = ({ isAuthenticated, currentPathname }) => {
   const renderNavList = () => {
     return (
       <>
-        {currentPathname !== ROUTES.ACCOUNT_LOGIN &&
-        currentPathname !== ROUTES.ACCOUNT_REGISTER ? (
-          <>
-            <ul className="navigation__list">
-              {renderNewItemButton()}
-              <li className="navigation__list__item">
-                <NavLink
-                  contentText="Moje konto"
-                  path={isAuthenticated ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
-                />
-              </li>
-            </ul>
-            <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
-              <div className="navigation__hamburger__box">
-                <span className="navigation__hamburger__line"></span>
-              </div>
-            </button>
-          </>
-        ) : null}
-      </>
-    );
-  };
-
-  const renderNewItemButton = () => {
-    return (
-      <>
-        {currentPathname !== ROUTES.NEW_ITEM ? (
+        <ul className="navigation__list">
+          {currentPathname !== ROUTES.NEW_ITEM && (
+            <li className="navigation__list__item">
+              <NavLink
+                contentText="Dodaj przedmiot"
+                path={isAuthenticated ? ROUTES.NEW_ITEM : ROUTES.ACCOUNT_LOGIN}
+              />
+            </li>
+          )}
           <li className="navigation__list__item">
-            <NavLink contentText="Dodaj przedmiot" path={ROUTES.NEW_ITEM} />
+            <NavLink
+              contentText="Moje konto"
+              path={isAuthenticated ? ROUTES.ACCOUNT_MY_ACCOUNT : ROUTES.ACCOUNT_LOGIN}
+            />
           </li>
-        ) : null}
+          {isAuthenticated && (
+            <li className="navigation__list__item">
+              <FontAwesomeIcon icon={faSignOutAlt} size="2x" onClick={() => handleLogout()} />
+            </li>
+          )}
+        </ul>
+        <button className="navigation__hamburger" onClick={() => toggleHamburger()}>
+          <div className="navigation__hamburger__box">
+            <span className="navigation__hamburger__line"></span>
+          </div>
+        </button>
       </>
     );
   };
@@ -76,7 +73,7 @@ const Header = ({ isAuthenticated, currentPathname }) => {
             <Link to="/">Barter it</Link>
           </h1>
         </div>
-        {renderNavList()}
+        {!isAuthPage && renderNavList()}
       </nav>
     </header>
   );
@@ -84,7 +81,9 @@ const Header = ({ isAuthenticated, currentPathname }) => {
 
 Header.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  currentPathname: PropTypes.string.isRequired
-}
+  currentPathname: PropTypes.string.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+  isAuthPage: PropTypes.bool.isRequired
+};
 
 export { Header };
