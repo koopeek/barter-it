@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router';
 import { render } from '@testing-library/react';
 import { NavLink } from './NavLink';
 
-test('contain proper text and path', () => {
+test('should contain proper text and path', () => {
   const contentText = 'Some text';
   const path = '/test';
 
