@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './ImageThumbnail.scss';
 
 const ImageThumbnail = ({ file, handleRemoveFile }) => {
   const [filePreview, setFilePreview] = useState(null);
 
-  const reader = new FileReader();
+  useEffect(() => {
+    const reader = new FileReader();
 
-  reader.onloadend = () => {
-    setFilePreview(reader.result);
-  };
+    reader.onloadend = () => {
+      setFilePreview(reader.result);
+    };
 
-  reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
+  }, [setFilePreview, file]);
 
   return (
     filePreview && (
