@@ -19,8 +19,8 @@ const Dropzone = ({ input }) => {
 
   const handleRemoveFile = removedFile => {
     if (removedFile) {
-      const filesWithoutRemoved = files.filter(file => file !== removedFile);
-      setFiles(filesWithoutRemoved);
+      const nonRemovedFiles = files.filter(file => file !== removedFile);
+      setFiles(nonRemovedFiles);
     }
   };
 
