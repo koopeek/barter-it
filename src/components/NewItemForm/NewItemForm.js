@@ -48,13 +48,15 @@ const NewItemForm = ({ validateFormValues, handleSubmitForm }) => {
               </div>
             </div>
             <div className="new-item-form__fields-dropzone">
-              <div className="new-item-form__field new-item-form__field--dropzone">
+              <div className="new-item-form__field--dropzone">
                 <Field name="images[]" component={Dropzone} multiple />
               </div>
             </div>
           </div>
           <div className="new-item-form__buttons">
-            <button type="submit">Dodaj</button>
+            <button type="submit" className="new-item-form__buttons__submit">
+              Dodaj
+            </button>
           </div>
         </form>
       )}
