@@ -1,12 +1,8 @@
 import React from 'react';
-import { cleanup, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { ImageThumbnailList } from './ImageThumbnailList';
 
 const handleRemoveFileMock = jest.fn();
-
-afterAll(() => {
-  cleanup();
-});
 
 test('should not render any thumbnails if files array is empty', () => {
   const filesMock = [];

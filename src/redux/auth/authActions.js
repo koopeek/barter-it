@@ -23,8 +23,8 @@ export const loginUser = (credentials, history) => {
       .then(res => res.json())
       .then(res => {
         const { token } = res;
-        if (token) {
-          localStorage.setItem('token', token);
+        if (token && token.value) {
+          localStorage.setItem('token', token.value);
           dispatch(loginSuccess());
           history.push('/');
         } else {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, cleanup } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { ImageThumbnail } from './ImageThumbnail';
 
 test('should display image thumbnail', async () => {
@@ -13,6 +13,4 @@ test('should display image thumbnail', async () => {
   await waitFor(() => getByAltText('thumbnail'));
 
   expect(getByAltText('thumbnail')).toBeInTheDocument();
-
-  cleanup();
 });
